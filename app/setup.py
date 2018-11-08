@@ -10,41 +10,55 @@ CREATE SCHEMA public;"""
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE posts 
-           (id serial PRIMARY KEY, titulo varchar(40), resumen varchar, texto text, creado timestamp);
+CREATE TABLE paises 
+           (id serial PRIMARY KEY, pais varchar(40), continente varchar(40));
 """
 
 cur.execute(sql)
 
 
 sql ="""
-CREATE TABLE categorias 
-           (id serial PRIMARY KEY, nombre varchar(40), creado timestamp);
+CREATE TABLE oilotos
+           (numero integer , nombre varchar(40), apellido varchar(40), edad interger , pais varchar(40), escuderia integer);
 """
 
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE categorias_posts 
-           (categoria_id integer, post_id integer);
+CREATE TABLE provedores_marca 
+           (id serial PRIMARY KEY, nombre varchar(40), pais_id integer);
 """
 
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE  usuarios
-           (id serial PRIMARY KEY,rol integer, nombre varchar(40),apellido varchar(40),
-           email varchar(100),passwd varchar(255), creado timestamp);
+CREATE TABLE escuderias
+           (id serial PRIMARY KEY, nombre varchar(40),jefe_motores varchar(40),provedores_id integer, pais_id integer );
 """
 
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE comentarios
-           (id serial PRIMARY KEY, comentario varchar(140), post_id integer, usuario_id integer, creado timestamp);
+CREATE TABLE resultados
+           (id serial PRIMARY KEY, circuito_id integer, piloto_id integer, accidente varchar, puesto integer);
 """
 
 cur.execute(sql)
+
+sql ="""
+CREATE TABLE circuitos
+           (id serial PRIMARY KEY, nombre varchar(40), pais_id integer, fecha timestap);
+"""
+
+cur.execute(sql)
+
+sql ="""
+CREATE TABLE circuitos
+           (puesto integer, puntuacion integer);
+"""
+
+cur.execute(sql)
+
 
 
 conn.commit()
