@@ -18,14 +18,14 @@ cur.execute(sql)
 
 
 sql ="""
-CREATE TABLE oilotos
+CREATE TABLE pilotos
            (numero integer , nombre varchar(40), apellido varchar(40), edad interger , pais varchar(40), escuderia integer);
 """
 
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE provedores_marca 
+CREATE TABLE provedores_marcas 
            (id serial PRIMARY KEY, nombre varchar(40), pais_id integer);
 """
 
@@ -40,7 +40,7 @@ cur.execute(sql)
 
 sql ="""
 CREATE TABLE resultados
-           (id serial PRIMARY KEY, circuito_id integer, piloto_id integer, accidente varchar, puesto integer);
+           (id serial PRIMARY KEY, circuito_id integer, piloto_id integer, accidente varchar, puesto integer, puntuacion integer);
 """
 
 cur.execute(sql)
@@ -52,12 +52,6 @@ CREATE TABLE circuitos
 
 cur.execute(sql)
 
-sql ="""
-CREATE TABLE circuitos
-           (puesto integer, puntuacion integer);
-"""
-
-cur.execute(sql)
 
 
 
