@@ -4,28 +4,36 @@ conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
 cur = conn.cursor()
 
 sql ="""
-insert into categorias (nombre) values ('Tecnologia '),('Video Juegos '),('Geek'),
-('Cine'),('Mundo Marvel');
+insert into paises (pais,continente) values ('Inglaterra, Europa '),('Italia, Europa '),('Francia, Europa'),
+('Estados Unidos, America'),('Australia, Oceania');
 """
 cur.execute(sql)
+sql =""",
+insert into pilotos (numero,nombre,apellido,edad,pais,escuderia) values ('44 ','Lewis ','Halmiton ','33','Inglaterra ','0') returning id;
+"""
+cur.execute(sql)
+
 sql ="""
-insert into posts (titulo,resumen,texto,creado) values ('Iron Man 4 ','La nueva pelicula de iron saldra el proximo 2018',
-'Esta pelicula bla bla bla y ser la mejor por que si ',now()) returning id;
+insert into provedores_marcas (nombre,pais_id) values ('Renault ','0 ') returning id;
 """
 cur.execute(sql)
-conn.commit()
-post_id = cur.fetchone()[0]
 
-print post_id
-
-
-sql ="""insert INTO categorias_posts (categoria_id,post_id)
-(SELECT id,%i  FROM categorias where nombre = 'Cine' or 
- nombre = 'Geek' or 
-  nombre = 'Mundo Marvel'
-);"""%(post_id)
-
+sql ="""
+insert into escuderias (nombre,jefe_motores,provedores_id,pais_id) values ('Mclaren','Pat Fry','0','0') returning id;
+"""
 cur.execute(sql)
+
+sql ="""
+insert into circuitos (nombre,pais_id) values ('MELBOURNE ','0 ',now()) returning id;
+"""
+cur.execute(sql)
+
+sql ="""
+insert into resultados (circuito_id,piloto_id,accidente, puesto,puntacion) values ('0 ','0 ','4','35') returning id;
+"""
+cur.execute(sql)
+
+
 
 
 conn.commit()
