@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+  {% block content %}
+  <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>nombre</th>
+            <th>pais</th>
+        <th>fecha</th>
+        
+	    <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for circuitos in circuitos %}
+        <tr>
+            <td>{{circuito[0]}}</td>
+            <td>{{circuito[1]}}</td>
+	    <td>{{circuito[2]}}</td>
+	    <td><a href="/eliminar" >Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <a href="/insertar" class="btn btn-info" role="button">Insertar</a> 
+
+{% endblock %}
