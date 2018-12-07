@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+  {% block content %}
+  <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>numero</th>
+            <th>Nombre</th>
+	    <th>apellido</th>
+	    <th>edad </th>
+	    <th>pais</th>
+	    <th>escuderia</th>
+	    <th>Actualizar</th>
+	    <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pilotos in pilotos %}
+        <tr>
+            <td>{{pilotos[0]}}</td>
+            <td>{{pilotos[1]}}</td>
+	    <td>{{pilotos[2]}}</td>
+	    <td>{{pilotos[3]}}</td>
+	    <td>{{pilotos[4]}}</td>
+	    <td>{{pilotos[5]}}</td>
+	    <td>{{pilotos[6]}}</td>
+	    <td><a href="/actualizarpilotos/{{pilotos[0]}}" >Actualizar</a></td>
+	    <td><a href="/eliminar" >Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <a href="/insertarpilotos" class="btn btn-info" role="button">Insertar</a> 
+
+{% endblock %}
