@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+  {% block content %}
+  <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>nombre</th>
+            <th>continente</th>
+	    </tr>
+    </thead>
+    <tbody>
+        {% for pais in paises %}
+        <tr>
+            <td>{{pais[0]}}</td>
+            <td>{{pais[1]}}</td>
+	    <td><a href="/eliminar" >Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <a href="/insertarpais" class="btn btn-info" role="button">Insertar</a> 
+
+{% endblock %}
