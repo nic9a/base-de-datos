@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+  {% block content %}
+  <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>nombre</th>
+            <th>jefe de motores</th>
+            <th>provedores de marca</th>
+            <th>pais</th>
+            
+	   
+	    <th>Actualizar</th>
+	    <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for escuderia in escuderias %}
+        <tr>
+            <td>{{escuderia[0]}}</td>
+            <td>{{escuderia[1]}}</td>
+	    <td>{{escuderia[2]}}</td>
+	    <td>{{escuderia[3]}}</td>
+	    <td><a href="/eliminar" >Eliminar</a></td>
+        </tr>
+        {% endfor %}   
+    </tbody>
+  </table>
+  <a href="/insertarc" class="btn btn-info" role="button">Insertar</a> 
+
+{% endblock %}
