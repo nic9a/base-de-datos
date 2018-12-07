@@ -34,7 +34,7 @@ def pilotos():
 	cur.execute(sql)
 	pilotos  = cur.fetchall()
 
-	return render_template("pilotos.html")
+	return render_template("pilotos.html", pilotos = pilotos)
 
 
 @app.route('/circuitos')
@@ -48,7 +48,7 @@ def circuitos():
 	cur.execute(sql)
 	circuitos  = cur.fetchall()
 
-	return render_template("circuitos.html")
+	return render_template("circuitos.html", circuitos = circuitos)
 
 @app.route('/escuderias')
 def escuderias():
@@ -61,7 +61,7 @@ def escuderias():
 	cur.execute(sql)
 	escuderias  = cur.fetchall()
 
-	return render_template("escuderia.html")
+	return render_template("escuderia.html", escuderias = escuderias)
 
 @app.route('/proveedores')
 def proveedores():
@@ -74,7 +74,7 @@ def proveedores():
 	cur.execute(sql)
 	Proveedores_motores  = cur.fetchall()
 
-	return render_template("proveedores.html")
+	return render_template("proveedores.html", proveedores = proveedores)
 
 
 @app.route('/insertarp', methods=['GET', 'POST']) 
@@ -89,9 +89,9 @@ def insertarp(pais):
 		sql = """ insert into Proveedores_motores  
 		(nombre,pais1) 
 		values ('%s','%s', ) returning rut_proveedor; """%(nombre,pais1)
-		cur.execute(sql)
+		insert = cur.execute(sql)
 		conn.commit()
-	return render_template('insertarp.html')
+	return render_template('insertarp.html' )
 
 @app.route('/eliminarPais', methods=['GET', 'POST'])
 def eliminar(id):
