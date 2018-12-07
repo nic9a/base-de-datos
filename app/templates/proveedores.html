@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+  {% block content %}
+  <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>pais</th>
+            <th>Nombre</th>
+	    <th>Actualizar</th>
+	    <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{proveedor[0]}}</td>
+            <td>{{proveedor[1]}}</td>
+	    <td><a href="/actualizarp/{{proveedor[0]}}" >Actualizar</a></td>
+	    <td><a href="/eliminar/{{proveedor[0]}}" >Eliminar</a></td>
+	    
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+  <a href="/insertarp" class="btn btn-info" role="button">Insertar</a> 
+  
+{% endblock %}
