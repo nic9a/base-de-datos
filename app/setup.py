@@ -25,7 +25,7 @@ CREATE TABLE pilotos
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE provedores_marcas 
+CREATE TABLE proveedores_marcas 
            (id serial PRIMARY KEY, nombre varchar(40), pais_id integer);
 """
 
