@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+  {% block content %}
+  <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>RUT</th>
+            <th>Nombre</th>
+	    <th>Direccion</th>
+	    <th>codigo pais</th>
+	    <th>contacto</th>
+	    <th>correo</th>
+	    <th>telefono</th>
+	    <th>Actualizar</th>
+	    <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{cliente[0]}}</td>
+            <td>{{cliente[1]}}</td>
+	    <td>{{cliente[2]}}</td>
+	    <td>{{cliente[3]}}</td>
+	    <td>{{cliente[4]}}</td>
+	    <td>{{cliente[5]}}</td>
+	    <td>{{cliente[6]}}</td>
+	    <td><a href="/actualizari/{{cliente[0]}}" >Actualizar</a></td>
+	    <td><a href="/eliminar" >Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <a href="/insertarc" class="btn btn-info" role="button">Insertar</a> 
+
+{% endblock %}
