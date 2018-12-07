@@ -1,0 +1,28 @@
+
+% agregar circuitos
+('Singapur', 'Asia'), 
+('Sao Paulo','America')
+('Dubai', 'Asia')
+
+%agregar paises
+('Alemania', 'Europa')
+('Holanda', 'Europa')
+('Finlandia', 'Europa')
+
+
+%agregar escuderías
+('Red Bull', 'nico', '0','3')
+('BMW', 'JP', '0', '5')
+('Ferrari', 'Fergus', '0','1')
+
+%agregar pilotos
+('10', 'Daniel', 'Ricciardo', '29', '4', '1')
+('1','Max', 'Verstapen', '20', '6', '1')
+('5', 'Sebastian','Vettel','22','5','3')
+('3', 'Valteri', 'Botas', '28', '6', '2')
+
+%agregar resultados
+('0', '2','0','3','15')
+('0','1','0','1','25')
+('2','3','0','5', '10')
+('1','3','1','20','0')
