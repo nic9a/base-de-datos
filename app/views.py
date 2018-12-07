@@ -76,6 +76,19 @@ def proveedores():
 
 	return render_template("proveedores.html", proveedores = proveedores)
 
+@app.route('/paises')
+def paises():
+	sql ="""
+	select id, pais, continente
+	from paises
+	order by continente
+	"""
+	print sql 
+	cur.execute(sql)
+	paises = cur.fetchall()
+
+	return render_template("paises.html", paises = paises)
+
 
 @app.route('/insertarp', methods=['GET', 'POST']) 
 def insertarp(pais):
