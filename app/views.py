@@ -43,6 +43,25 @@ def index():
 
 	return render_template("index.html", resultados = resultados)
 
+@app.route('/actualizarp', methods=['GET', 'POST'])
+def insertarp(prov):
+	if request.method == 'POST':
+		circuito =  request.form['circuito']
+		piloto =  request.form['piloto']
+		accidente =  request.form['accidente']
+		puesto =  request.form['puesto']
+		puntuacion =  request.form['puntuacion']
+
+		nombre = sql=""" select numero from pilotos where nombre='%s'"""%(piloto[0])
+		circuito1 = sql=""" select id from circuitos where nombre='%s'"""%(circuito)
+		cur.execute(sql)
+
+		sql = """ insert into resultados
+		(circuito_id,piloto_id,accidente, puesto,puntuacion)
+		values ('%s','%s','%s','%s','%s'); """%(circuito1,nombre,accidente,puesto,puntuacion)
+		insert = cur.execute(sql)
+		conn.commit()
+	return render_template('actualizarp.html' )
 
 @app.route('/pilotos')
 def pilotos():
