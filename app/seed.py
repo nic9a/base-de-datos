@@ -26,10 +26,11 @@ insert into pilotos (numero,nombre,apellido,edad,pais,escuderia) values ('44 ','
 cur.execute(sql)
 
 sql ="""
-insert into escuderias (nombre,jefe_motores,pais_id) values ('Mclaren','Gil de Ferran','1'), ('Red Bull','Christian Horner','19'),
-('Ferrari','Maurizio Arrivabene','2'), ('Force India','Vijay Mallya','18'), ('Williams','Paddy Lowe','1'),
-('Mercedes','James Allison','8'), ('Toro Rosso','Franz Tost','2'), ('Haas','Guenther Steiner','4'),
-('Renault','Cyril Abiteboul','1'), ('Sauber','Frederic Vasseur','17') returning id;
+insert into escuderias (nombre,jefe_motores,proveedores_id, pais_id) values ('Mclaren','Gil de Ferran','1','1'), 
+('Red Bull','Christian Horner','1','19'),
+('Ferrari','Maurizio Arrivabene','1','2'), ('Force India','Vijay Mallya','1','18'), ('Williams','Paddy Lowe','1','1'),
+('Mercedes','James Allison','1','8'), ('Toro Rosso','Franz Tost','1','2'), ('Haas','Guenther Steiner','1','4'),
+('Renault','Cyril Abiteboul','1','1'), ('Sauber','Frederic Vasseur','1','17') returning id;
 """
 cur.execute(sql)
 
@@ -85,7 +86,10 @@ insert into resultados (circuito_id,numero,accidente, puesto,puntacion) values
 """
 cur.execute(sql)
 
-
+sql ="""
+insert into proveedores_marcas (nombre,pais_id) values ('BMW ','8') returning id;
+"""
+cur.execute(sql)
 
 
 conn.commit()
