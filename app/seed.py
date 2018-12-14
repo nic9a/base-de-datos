@@ -4,7 +4,7 @@ conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
 cur = conn.cursor()
 
 sql ="""
-insert into paises (pais,continente) values ('Reino Unido', 'Europa '),('Italia', 'Europa '),('Francia', 'Europa'),
+insert into paises (pais,continente) values ('Reino Unido', 'Europa'),('Italia', 'Europa'),('Francia', 'Europa'),
 ('Estados Unidos', 'America'),('Australia', 'Oceania'),('Finlandia','Europa'), ('Belgica','Europa'), ('Alemania','Europa'),
 ('Mexico','America'), ('Canada','America'), ('Rusia','Europa'), ('España','Europa'), ('Nueva Zelanda','Oceania'),
 ('Dinamarca','Europa'), ('Suecia','Europa'), ('Monaco','Europa'), ('Suiza','Europa'), ('India','Asia'),
@@ -14,7 +14,7 @@ returning id;
 """
 cur.execute(sql)
 sql =""",
-insert into pilotos (numero,nombre,apellido,edad,pais,escuderia) values ('44 ','Lewis ','Halmiton ','33','1','6'),
+insert into pilotos (numero,nombre,apellido,edad,pais,escuderia) values ('44 ','Lewis','Halmiton ','33','1','6'),
 ('77','Valteri','Bottas','29','6','6'), ('5','Sebastian','Vettel','31','8','3'), ('7','Kimi','Raikkonen','39','6','3'),
 ('3','Daniel','Ricciardo','29','5','2'), ('33','Max','Verstappen','21','7','2'), ('11','Sergio','Perez','28','9','4'),
 ('31','Esteban','Ocon','22','3','4'), ('18','Lance','Stroll','30','10','5'), ('35','Sergey','Sirotkin','23','11','5'),
@@ -35,12 +35,12 @@ insert into escuderias (nombre,jefe_motores,proveedores_id, pais_id) values ('Mc
 cur.execute(sql)
 
 sql ="""
-insert into circuitos (nombre,pais_id, fecha) values ('Melbourne ','5', '25/03'),('Sakhir ','20', '08/04'),('Shanghai ','21', '15/04'),
-('Baku City Circuit ','22', '29/04'),('Cataluña ','12', '13/05'),('Montecarlo ','16', '27/05'), ('Gilles Villeneuve','10','10/06'),
-('Le Castellet','3', '24/06'),('Spielberg ','19', '01/07'),('Silverstone ','1, 08/07'), ('Hockenheim','8','22/07'),
-('Hungaroring','22', '29/07'),('SPA Francorchamps ','7', '26/08'),('Monza ','2', '02/09'), ('Marina Bay','24','16/09'),
-('Sochi','11', '30/09'),('Suzuka ','25', '07/10'),('Las Americas ','4', '21/10'), ('Hermanos Rodrigues','9','28/10'),
-('Jose Carlos Pace ','26', '11/11'),('Yas Marina Circuit ','27', '25/11') returning id;
+insert into circuitos (nombre,pais_id, fecha) values ('Melbourne','5', '25/03'),('Sakhir','20', '08/04'),('Shanghai','21', '15/04'),
+('Baku City Circuit','22', '29/04'),('Cataluña','12', '13/05'),('Montecarlo','16', '27/05'), ('Gilles Villeneuve','10','10/06'),
+('Le Castellet','3', '24/06'),('Spielberg','19', '01/07'),('Silverstone','1, 08/07'), ('Hockenheim','8','22/07'),
+('Hungaroring','22', '29/07'),('SPA Francorchamps','7', '26/08'),('Monza','2', '02/09'), ('Marina Bay','24','16/09'),
+('Sochi','11', '30/09'),('Suzuka','25', '07/10'),('Las Americas','4', '21/10'), ('Hermanos Rodriguez','9','28/10'),
+('Jose Carlos Pace','26', '11/11'),('Yas Marina Circuit','27', '25/11') returning id;
 """
 cur.execute(sql)
 
