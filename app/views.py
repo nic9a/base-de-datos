@@ -11,17 +11,38 @@ cur = conn.cursor()
 @app.route('/index')
 def index():
 	sql ="""
-	select circuitos.fecha, circuitos.nombre, pilotos.nombre, puesto, puntuacion
+	select circuitos.nombre, pilotos.nombre, puesto, puntuacion
 	from resultados, circuitos, pilotos
 	where circuitos.id = resultados.circuito_id and resultados.piloto_id=pilotos.numero
-	group by fecha
-	order by fecha
+	and fecha='13/05'
 	"""
 	print sql
 	cur.execute(sql)
 	resultados  = cur.fetchall()
 
+	sql ="""
+	select pilotos.nombre,sum(resultados.puntuacion) as totales
+	from pilotos, resultados
+	where pilotos.numero = resultados.piloto_id
+	group by pilotos.nombre
+	order by totales desc
+	"""
+	print sql
+	cur.execute(sql)
+	resultados  = cur.fetchall()
+
+	sql ="""
+	select circuitos.nombre, paises.nombre 
+	from circuitos, paises
+	where continente='asia'
+	"""
+	print sql
+	cur.execute(sql)
+	resultados  = cur.fetchall()
+	
+
 	return render_template("index.html", resultados = resultados)
+
 
 @app.route('/pilotos')
 def pilotos():
